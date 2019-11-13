@@ -24,7 +24,7 @@ public class BookingEngineActor extends AbstractActor {
     private final Map<String, ActorRef> busyCaptains = new ConcurrentHashMap<>();
 
     private final LinkedHashMap<String, Optional> acceptedBookingIds = new LinkedHashMap<>(1024, 0.75f, true);
-    private final LinkedHashMap<String, ActorRef> openBookings = new LinkedHashMap<>(1024, 0.75f, true);
+    private final Map<String, ActorRef> openBookings = new ConcurrentHashMap<>();
 
     public static Props props() {
         return Props.create(BookingEngineActor.class);
